@@ -1,0 +1,88 @@
+.Main {
+	display: flex;
+	width: 992px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.LeftSide {
+	width: 40%;
+	position: relative;
+}
+
+.LeftSide img {
+	width: 100%;
+}
+
+.RightSide {
+	width: 50%;
+}
+
+.Thumbnails img {
+	width: 100px;
+	cursor: pointer;
+}
+
+button {
+	border: unset;
+	outline: unset;
+	margin-right: 10px;
+	padding: 5px 20px;
+	border-radius: 5px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.ActiveOne {
+	background-color: gray;
+	color: white;
+}
+
+.BuyBtn {
+	display: block;
+	background-color: darkcyan;
+	margin-top: 20px;
+}
+
+.Time {
+	position: absolute;
+    top: 42%;
+    left: 50%;
+    z-index: 20;
+	font-size: 1.5em;
+    color: white;
+    transform: translate(-50%, -50%);
+    letter-spacing: 2.5px;
+}
+
+.HeartRate {
+	position: absolute;
+    top: 32%;
+    left: 43%;
+    text-align: center;
+}
+
+.HeartRate img {
+	width: 48px;
+	height: 48px;
+	animation: heart-beat infinite step-start;
+	animation-duration: 1s;
+	animation-timing-function: steps(4, end);
+}
+
+@keyframes heart-beat {
+
+	0% {
+       transform: scale(1.0);
+	}
+
+    100% {
+        transform: scale(1.4);
+    }
+}
+
+.HeartRate p {
+	color: #fff;
+	font-size: 22px;
+	margin-top: 10px;
+}
