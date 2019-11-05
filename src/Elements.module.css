@@ -1,23 +1,28 @@
 header {
 	background-color: #232f3e;
-	display: flex;
-    justify-content: center;
-   	min-width: 1140px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: c;
+    text-align: center;
 }
 
 .Logo {
-	width: 97px;
+	width: 100px;
 }
 
 .Main {
+    width: 100%;
 	display: flex;
-	width: 992px;
-    margin: 0 auto;
-    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding: 4% 12%;
+    box-sizing: border-box;
 }
 
 .LeftSide {
-	width: 40%;
+	width: 50%;
 	position: relative;
 }
 

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import ProductData from './ProductDataObj';
+
 import Element from './Elements';
 import {TimeElement, HeartRate} from './Time and HeartRate';
 import isArrayEmpty from "./ArrayCheck";
@@ -15,39 +17,16 @@ class App extends Component {
       currentAlt : 'Purple Strap'
     },
 
+    productData : ProductData,
+
     flag : true
   }
 
-  ProductData = {
-    title: 'FitBit 19 - The Smartest Watch',
-    description: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor.',
-    colorOptions: [
-        {
-            styleName: 'Black Strap',
-            imageUrl: 'https://imgur.com/iOeUBV7.png'
-        },
-        {
-            styleName: 'Red Strap',
-            imageUrl: 'https://imgur.com/PTgQlim.png'
-        },
-        {
-            styleName: 'Blue Strap',
-            imageUrl: 'https://imgur.com/Mplj1YR.png'
-        },
-        {
-            styleName: 'Purple Strap',
-            imageUrl: 'https://imgur.com/xSIK4M8.png'
-        },
-    ],
-    featureList: [
-        "Time", "Heart Rate"
-    ]
-  }
 
   updateWatch = (pos) => {
     let updatedWatch = this.state.currentWatch;
-    updatedWatch.currentLink = this.ProductData.colorOptions[pos].imageUrl;
-    updatedWatch.currentAlt = this.ProductData.colorOptions[pos].styleName;
+    updatedWatch.currentLink = this.state.productData.colorOptions[pos].imageUrl;
+    updatedWatch.currentAlt = this.state.productData.colorOptions[pos].styleName;
 
     this.setState({currentWatch: updatedWatch});
   }
@@ -76,7 +55,7 @@ class App extends Component {
 
   render () {
 
-    let Thumbnails = isArrayEmpty(this.ProductData.colorOptions) ? [] : this.ProductData.colorOptions.map((item,pos) => {
+    let Thumbnails = isArrayEmpty(this.state.productData.colorOptions) ? [] : this.state.productData.colorOptions.map((item,pos) => {
       return (
         <Element updateWatch = {()=> this.updateWatch(pos)} imageUrl = {item.imageUrl} styleName = {item.styleName} key={pos+1} />
       )
@@ -98,8 +77,8 @@ class App extends Component {
 
           <div className = {classes.RightSide}>
 
-            <h1>{this.ProductData.title}</h1>
-            <p>{this.ProductData.description}</p>
+            <h1>{this.state.productData.title}</h1>
+            <p>{this.state.productData.description}</p>
 
             <h3>Select Color</h3>
             <div className = {classes.Thumbnails}>
