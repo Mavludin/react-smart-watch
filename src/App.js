@@ -84,6 +84,9 @@ class App extends Component {
 
     return (
       <div className="App">
+        <header>
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/gc/designs/livepreview/amazon_dkblue_noto_email_v2016_us-main._CB468775337_.png" alt="logo" className={classes.Logo} />
+        </header>
         <div className = {classes.Main}>
           <div className = {classes.LeftSide}>
 
