@@ -9,6 +9,15 @@ import classes from './Elements.module.css';
 
 class App extends Component {
 
+  state = {
+    currentWatch : {
+      currentLink: 'https://imgur.com/xSIK4M8.png',
+      currentAlt : 'Purple Strap'
+    },
+
+    flag : true
+  }
+
   ProductData = {
     title: 'FitBit 19 - The Smartest Watch',
     description: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor.',
@@ -35,15 +44,6 @@ class App extends Component {
     ]
   }
 
-  state = {
-    currentWatch : {
-      currentLink: 'https://imgur.com/xSIK4M8.png',
-      currentAlt : 'Purple Strap'
-    },
-
-    flag : true
-  }
-
   updateWatch = (pos) => {
     let updatedWatch = this.state.currentWatch;
     updatedWatch.currentLink = this.ProductData.colorOptions[pos].imageUrl;
@@ -57,13 +57,22 @@ class App extends Component {
   }
   
   ShowHeartRate = () => {
-    let currentFlag = this.state.flag;
-    currentFlag = !currentFlag;
-    this.setState({flag : currentFlag});
+    this.setState({flag : !this.state.flag});
   }
 
   TimeElement = <TimeElement />
   HeartRate = <HeartRate />
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Next State =>', nextState);
+    console.log('Current State =>', this.state);
+
+    // if (nextState.currentWatch.currentAlt === this.state.currentWatch.currentAlt) {
+    //   return false;
+    // }
+
+    return true;
+  }
 
   render () {
 
